@@ -55,6 +55,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\SampleModel.cs" />
+    <Compile Include="ViewModels\DefaultBindingViewModel.cs" />
+    <Compile Include="ViewModels\OneTimeBindingViewModel.cs" />
+    <Compile Include="ViewModels\OneWayBindingViewModel.cs" />
+    <Compile Include="ViewModels\TriggersViewModel.cs" />
+    <Compile Include="ViewModels\TwoWayBindingViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -129,7 +136,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModels\" />
     <Folder Include="Views\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
