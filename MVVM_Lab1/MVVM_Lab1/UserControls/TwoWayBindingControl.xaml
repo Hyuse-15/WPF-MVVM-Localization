@@ -3,13 +3,138 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MVVM_Lab1"
+             xmlns:viewmodels="clr-namespace:MVVM_Lab1.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <TextBlock Text="Здесь будет контент вкладки 'Двухсторонняя привязка'" 
+
+    <UserControl.DataContext>
+        <viewmodels:TwoWayBindingViewModel />
+    </UserControl.DataContext>
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Заголовок -->
+        <TextBlock Text="Демонстрация двухсторонней привязки (Mode=TwoWay)" 
+                   Grid.Row="0" Grid.ColumnSpan="2"
+                   FontSize="18" FontWeight="Bold" 
                    HorizontalAlignment="Center" 
-                   VerticalAlignment="Center"
-                   FontSize="16"/>
+                   Margin="0,0,0,20"/>
+
+        <!-- Пояснение -->
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="2"
+                   Text="TwoWay режим: изменения в UI автоматически обновляют ViewModel и наоборот"
+                   TextWrapping="Wrap"
+                   Foreground="Gray"
+                   Margin="0,0,0,15"/>
+
+        <!-- Левая колонка: Пример с именем и фамилией -->
+        <GroupBox Header="Пример с именем и фамилией (автоматическое вычисление)" 
+                  Grid.Row="2" Grid.Column="0"
+                  Margin="0,0,10,20" Padding="10">
+            <StackPanel>
+                <TextBlock Text="Имя:" Margin="0,5"/>
+                <TextBox Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                         Margin="0,0,0,10"
+                         Padding="5"/>
+
+                <TextBlock Text="Фамилия:" Margin="0,5"/>
+                <TextBox Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                         Margin="0,0,0,10"
+                         Padding="5"/>
+
+                <Separator Margin="0,10,0,10"/>
+
+                <TextBlock Text="Полное имя (вычисляется автоматически):" 
+                           FontWeight="Bold"
+                           Margin="0,5"/>
+                <TextBlock Text="{Binding FullName}" 
+                           FontSize="16" 
+                           FontWeight="Bold"
+                           Foreground="Blue"
+                           Margin="0,5"/>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Правая колонка: Пример с другими элементами -->
+        <GroupBox Header="Примеры TwoWay привязки с другими элементами" 
+                  Grid.Row="2" Grid.Column="1"
+                  Margin="10,0,0,20" Padding="10">
+            <StackPanel>
+                <TextBlock Text="Слайдер (значение от 0 до 100):" Margin="0,5"/>
+                <Slider Minimum="0" Maximum="100" 
+                        Value="{Binding SliderValue, Mode=TwoWay}"
+                        Margin="0,0,0,10"/>
+                <TextBlock Text="Текущее значение:"/>
+                <TextBlock Text="{Binding SliderValue}" 
+                           FontSize="14" 
+                           FontWeight="Bold"
+                           Margin="0,0,0,10"/>
+
+                <Separator Margin="0,10,0,10"/>
+
+                <TextBlock Text="CheckBox пример:" Margin="0,5"/>
+                <CheckBox Content="Включить специальный режим" 
+                          IsChecked="{Binding IsChecked, Mode=TwoWay}"
+                          Margin="0,0,0,10"/>
+                <TextBlock Text="Состояние:"/>
+                <TextBlock Text="{Binding IsChecked}" 
+                           FontSize="14"
+                           FontWeight="Bold"/>
+
+                <Separator Margin="0,10,0,10"/>
+
+                <TextBlock Text="Выбор даты:" Margin="0,5"/>
+                <DatePicker SelectedDate="{Binding SelectedDate, Mode=TwoWay}"
+                            Margin="0,0,0,10"/>
+                <TextBlock Text="Выбранная дата:"/>
+                <TextBlock Text="{Binding SelectedDate, StringFormat=dd.MM.yyyy}" 
+                           FontSize="14"
+                           FontWeight="Bold"/>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Пример прямой привязки к элементам интерфейса -->
+        <TextBlock Text="Прямая привязка к элементам UI:" 
+                   Grid.Row="3" Grid.ColumnSpan="2"
+                   FontWeight="Bold"
+                   Margin="0,20,0,10"/>
+
+        <StackPanel Grid.Row="4" Grid.Column="0" Margin="0,0,10,0">
+            <TextBox x:Name="DirectTextBox" 
+                     Text="Введите текст"
+                     Margin="0,0,0,10"
+                     Padding="5"/>
+            <TextBlock Text="Привязка к DirectTextBox:"/>
+            <TextBlock Text="{Binding ElementName=DirectTextBox, Path=Text}"
+                       FontSize="14"
+                       TextWrapping="Wrap"
+                       Background="LightYellow"
+                       Padding="5"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Grid.Column="1" Margin="10,0,0,0">
+            <Slider x:Name="DirectSlider" 
+                    Minimum="0" Maximum="100" 
+                    Value="50"
+                    Margin="0,0,0,10"/>
+            <TextBlock Text="Значение слайдера:"/>
+            <TextBlock Text="{Binding ElementName=DirectSlider, Path=Value}"
+                       FontSize="14"
+                       Background="LightYellow"
+                       Padding="5"/>
+        </StackPanel>
     </Grid>
 </UserControl>

@@ -3,13 +3,160 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MVVM_Lab1"
+             xmlns:viewmodels="clr-namespace:MVVM_Lab1.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <TextBlock Text="Здесь будет контент вкладки 'Односторонняя привязка'" 
+
+    <UserControl.DataContext>
+        <viewmodels:OneWayBindingViewModel />
+    </UserControl.DataContext>
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <TextBlock Text="Демонстрация односторонней привязки (Mode=OneWay)" 
+                   Grid.Row="0"
+                   FontSize="18" FontWeight="Bold" 
                    HorizontalAlignment="Center" 
-                   VerticalAlignment="Center"
-                   FontSize="16"/>
+                   Margin="0,0,0,20"/>
+
+        <!-- Пояснение -->
+        <TextBlock Grid.Row="1"
+                   Text="OneWay режим: данные передаются от ViewModel к UI, но изменения в UI не влияют на ViewModel"
+                   TextWrapping="Wrap"
+                   Foreground="Gray"
+                   Margin="0,0,0,15"/>
+
+        <!-- Группа с OneWay привязками -->
+        <GroupBox Header="Данные, автоматически обновляемые из ViewModel" 
+                  Grid.Row="2"
+                  Margin="0,0,0,20" Padding="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Margin="0,5">
+                    <TextBlock Text="Статус:" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding StatusMessage}" 
+                               FontSize="14" 
+                               TextWrapping="Wrap"
+                               Background="LightYellow"
+                               Padding="5"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Margin="0,15">
+                    <TextBlock Text="Счетчик операций:" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding Counter}" 
+                               FontSize="24"
+                               FontWeight="Bold"
+                               Foreground="Blue"
+                               Background="LightYellow"
+                               Padding="5"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" Margin="0,15">
+                    <TextBlock Text="Прогресс:" FontWeight="Bold"/>
+                    <ProgressBar Value="{Binding ProgressValue}" 
+                                 Minimum="0" Maximum="1"
+                                 Height="25"
+                                 Margin="0,5,0,0"/>
+                    <TextBlock Text="{Binding ProgressValue, StringFormat=P0}" 
+                               FontSize="12"
+                               HorizontalAlignment="Center"
+                               Margin="0,5,0,0"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="3" Margin="0,15">
+                    <TextBlock Text="Текущее время:" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding CurrentTime, StringFormat=HH:mm:ss}" 
+                               FontSize="14"
+                               Background="LightYellow"
+                               Padding="5"/>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+
+        <!-- Пояснение о невозможности изменения -->
+        <Border Grid.Row="3"
+                Background="LightCoral"
+                BorderBrush="Red"
+                BorderThickness="1"
+                Padding="10"
+                Margin="0,0,0,20">
+            <StackPanel>
+                <TextBlock Text="⚠️ Важно: все элементы выше используют OneWay привязку!" 
+                           FontWeight="Bold"
+                           Margin="0,0,0,5"/>
+                <TextBlock Text="Попробуйте изменить значения через элементы управления ниже:"
+                           TextWrapping="Wrap"/>
+                <TextBlock Text="TextBox и Slider привязаны к тем же свойствам, но изменения не будут передаваться в ViewModel,"
+                           TextWrapping="Wrap"/>
+                <TextBlock Text="поэтому значения вверху не изменятся."
+                           TextWrapping="Wrap"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Элементы для попытки изменения (но изменения не будут работать) -->
+        <GroupBox Header="Попытка изменить данные (OneWay не позволяет)" 
+                  Grid.Row="4"
+                  Margin="0,0,0,20" Padding="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Margin="0,5">
+                    <TextBlock Text="Попробуйте изменить статус:" FontWeight="Bold"/>
+                    <TextBox Text="{Binding StatusMessage, Mode=OneWay}" 
+                             Margin="0,5,0,10"
+                             Padding="5"
+                             IsEnabled="True"/>
+                    <TextBlock Text="* Изменение текста не повлияет на статус выше из-за Mode=OneWay"
+                               Foreground="Red"
+                               FontSize="11"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Margin="0,15">
+                    <TextBlock Text="Попробуйте изменить счетчик:" FontWeight="Bold"/>
+                    <Slider Minimum="0" Maximum="100" 
+                            Value="{Binding Counter, Mode=OneWay}"
+                            Margin="0,5,0,10"/>
+                    <TextBlock Text="* Изменение слайдера не повлияет на счетчик выше"
+                               Foreground="Red"
+                               FontSize="11"/>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+
+        <!-- Пример прямой привязки к элементам интерфейса -->
+        <TextBlock Text="Прямая привязка к элементам UI:" 
+                   Grid.Row="5"
+                   FontWeight="Bold"
+                   Margin="0,20,0,10"/>
+
+        <StackPanel Grid.Row="6" Margin="0,0,0,0">
+            <TextBox x:Name="DirectTextBox" 
+                     Text="Измени этот текст"
+                     Margin="0,0,0,10"
+                     Padding="5"/>
+            <TextBlock Text="Привязка к DirectTextBox (OneWay):"/>
+            <TextBlock Text="{Binding ElementName=DirectTextBox, Path=Text, Mode=OneWay}" 
+                       FontSize="14"
+                       Background="LightYellow"
+                       Padding="5"/>
+        </StackPanel>
     </Grid>
 </UserControl>

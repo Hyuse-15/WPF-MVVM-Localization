@@ -3,13 +3,145 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MVVM_Lab1"
+             xmlns:viewmodels="clr-namespace:MVVM_Lab1.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <TextBlock Text="Здесь будет контент вкладки 'Одноразовая привязка'" 
-                   HorizontalAlignment="Center" 
-                   VerticalAlignment="Center"
-                   FontSize="16"/>
-    </Grid>
+
+    <UserControl.DataContext>
+        <viewmodels:OneTimeBindingViewModel />
+    </UserControl.DataContext>
+
+    <ScrollViewer>
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Заголовок -->
+            <TextBlock Text="Демонстрация одноразовой привязки (Mode=OneTime)" 
+                       Grid.Row="0"
+                       FontSize="18" FontWeight="Bold" 
+                       HorizontalAlignment="Center" 
+                       Margin="0,0,0,20"/>
+
+            <!-- Пояснение -->
+            <TextBlock Grid.Row="1"
+                       Text="OneTime режим: значение устанавливается один раз при загрузке и больше не обновляется, даже если источник изменяется"
+                       TextWrapping="Wrap"
+                       Foreground="Gray"
+                       Margin="0,0,0,15"/>
+
+            <!-- Группа с OneTime привязками -->
+            <GroupBox Header="Свойства с OneTime привязкой (значения не обновляются)" 
+                      Grid.Row="2"
+                      Margin="0,0,0,20" Padding="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0" Margin="0,5">
+                        <TextBlock Text="Статический текст:" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding StaticText, Mode=OneTime}" 
+                                   FontSize="14" 
+                                   TextWrapping="Wrap"
+                                   Background="LightGray"
+                                   Padding="5"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1" Margin="0,15">
+                        <TextBlock Text="Время загрузки:" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding LoadTime, Mode=OneTime, StringFormat=dd.MM.yyyy HH:mm:ss}" 
+                                   FontSize="14"
+                                   Background="LightGray"
+                                   Padding="5"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="2" Margin="0,15">
+                        <TextBlock Text="Случайное число:" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding RandomNumber, Mode=OneTime}" 
+                                   FontSize="14"
+                                   Background="LightGray"
+                                   Padding="5"/>
+                    </StackPanel>
+
+                    <TextBlock Grid.Row="3" 
+                               Text="⚠️ Эти значения НЕ обновляются, даже если в ViewModel они меняются"
+                               Foreground="OrangeRed"
+                               FontSize="12"
+                               Margin="0,10,0,0"/>
+                </Grid>
+            </GroupBox>
+
+            <!-- Группа с обычными привязками для сравнения -->
+            <GroupBox Header="Свойства с обычной привязкой (для сравнения)" 
+                      Grid.Row="3"
+                      Margin="0,0,0,20" Padding="10">
+                <StackPanel>
+                    <TextBlock Text="Текущее время (обычная привязка - обновляется):" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding CurrentTime, StringFormat=HH:mm:ss}" 
+                               FontSize="14"
+                               Background="LightGreen"
+                               Padding="5"/>
+                    <TextBlock Text="* Это значение обновляется каждую секунду в ViewModel и UI его видит"
+                               Foreground="Green"
+                               FontSize="11"
+                               Margin="0,5,0,0"/>
+                </StackPanel>
+            </GroupBox>
+
+            <!-- Объяснение -->
+            <Border Grid.Row="4"
+                    Background="LightBlue"
+                    BorderBrush="Blue"
+                    BorderThickness="1"
+                    Padding="10"
+                    Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="🔍 Объяснение:" 
+                               FontWeight="Bold"
+                               Margin="0,0,0,5"/>
+                    <TextBlock Text="В этом примере StaticText, LoadTime и RandomNumber используют Mode=OneTime."
+                               TextWrapping="Wrap"/>
+                    <TextBlock Text="В ViewModel запущен таймер, который каждую секунду пытается обновить эти значения,"
+                               TextWrapping="Wrap"/>
+                    <TextBlock Text="но UI не отображает эти изменения, так как привязка была выполнена только один раз при загрузке."
+                               TextWrapping="Wrap"/>
+                    <TextBlock Text="Однако CurrentTime (без указания Mode) обновляется, так как для TextBlock по умолчанию используется OneWay."
+                               TextWrapping="Wrap"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Пример прямой привязки к элементам интерфейса -->
+            <TextBlock Text="Прямая привязка к элементам UI:" 
+                       Grid.Row="5"
+                       FontWeight="Bold"
+                       Margin="0,20,0,10"/>
+
+            <StackPanel Grid.Row="6" Margin="0,0,0,0">
+                <TextBox x:Name="DirectTextBox" 
+                         Text="Измени этот текст"
+                         Margin="0,0,0,10"
+                         Padding="5"/>
+                <TextBlock Text="Привязка к DirectTextBox (OneTime):"/>
+                <TextBlock Text="{Binding ElementName=DirectTextBox, Path=Text, Mode=OneTime}" 
+                           FontSize="14"
+                           Background="LightGray"
+                           Padding="5"
+                           Margin="0,5,0,10"/>
+                <TextBlock Text="⚠️ Изменение текста выше не обновит это значение из-за Mode=OneTime"
+                           Foreground="OrangeRed"
+                           FontSize="11"/>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
 </UserControl>

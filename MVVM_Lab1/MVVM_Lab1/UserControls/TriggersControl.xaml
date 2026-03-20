@@ -3,13 +3,220 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MVVM_Lab1"
+             xmlns:viewmodels="clr-namespace:MVVM_Lab1.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <TextBlock Text="Здесь будет контент вкладки 'Триггеры'" 
-                   HorizontalAlignment="Center" 
-                   VerticalAlignment="Center"
-                   FontSize="16"/>
-    </Grid>
+
+    <UserControl.DataContext>
+        <viewmodels:TriggersViewModel />
+    </UserControl.DataContext>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Заголовок -->
+            <TextBlock Text="Демонстрация различных типов триггеров в WPF" 
+                       Grid.Row="0"
+                       FontSize="18" FontWeight="Bold" 
+                       HorizontalAlignment="Center" 
+                       Margin="0,0,0,20"/>
+
+            <!-- Пример 1: Property Trigger -->
+            <GroupBox Header="1. Property Trigger (Триггер свойства)" 
+                      Grid.Row="1" 
+                      Margin="0,0,0,20" Padding="10">
+                <StackPanel>
+                    <TextBlock Text="Наведите курсор на кнопку - изменится ее цвет и размер" 
+                               Margin="5" Foreground="Gray"/>
+
+                    <Button Content="Наведи на меня!"
+                            Width="200" Height="40"
+                            Margin="5"
+                            HorizontalAlignment="Left">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="LightBlue"/>
+                                <Setter Property="FontSize" Value="14"/>
+                                <Setter Property="Foreground" Value="Black"/>
+
+                                <!-- Property Trigger: срабатывает при наведении мыши -->
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Orange"/>
+                                        <Setter Property="FontSize" Value="18"/>
+                                        <Setter Property="Foreground" Value="White"/>
+                                        <Setter Property="Cursor" Value="Hand"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
+                    <TextBlock Text="✓ Property Trigger реагирует на изменение свойства элемента (IsMouseOver)" 
+                               Margin="5,10,5,5" 
+                               Foreground="Green" FontSize="11"/>
+                </StackPanel>
+            </GroupBox>
+
+            <!-- Пример 2: Data Trigger -->
+            <GroupBox Header="2. Data Trigger (Триггер данных)" 
+                      Grid.Row="2" 
+                      Margin="0,0,0,20" Padding="10">
+                <StackPanel>
+                    <TextBlock Text="Включите специальный режим - изменится внешний вид панели" 
+                               Margin="5" Foreground="Gray"/>
+
+                    <CheckBox Content="Включить специальный режим"
+                              IsChecked="{Binding IsSpecialMode}"
+                              Margin="5"/>
+
+                    <Border BorderThickness="2" 
+                            CornerRadius="5"
+                            Margin="5,10,5,5"
+                            Padding="10">
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Setter Property="Background" Value="LightGray"/>
+                                <Setter Property="BorderBrush" Value="Gray"/>
+
+                                <!-- Data Trigger: реагирует на изменение данных в ViewModel -->
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsSpecialMode}" Value="True">
+                                        <Setter Property="Background" Value="Gold"/>
+                                        <Setter Property="BorderBrush" Value="Orange"/>
+                                        <Setter Property="BorderThickness" Value="3"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+
+                        <TextBlock Text="{Binding StatusText}" 
+                                   FontSize="14" FontWeight="Bold"
+                                   HorizontalAlignment="Center"/>
+                    </Border>
+
+                    <TextBlock Text="✓ Data Trigger реагирует на изменение данных в ViewModel (IsSpecialMode)" 
+                               Margin="5,10,5,5" 
+                               Foreground="Green" FontSize="11"/>
+                </StackPanel>
+            </GroupBox>
+
+            <!-- Пример 3: MultiTrigger -->
+            <GroupBox Header="3. Multi Trigger (Множественный триггер)" 
+                      Grid.Row="3" 
+                      Margin="0,0,0,20" Padding="10">
+                <StackPanel>
+                    <TextBlock Text="Одновременно наведите курсор И нажмите кнопку мыши" 
+                               Margin="5" Foreground="Gray"/>
+
+                    <Button Content="Наведи и нажми!"
+                            Width="200" Height="40"
+                            Margin="5"
+                            HorizontalAlignment="Left">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="LightGreen"/>
+                                <Setter Property="FontSize" Value="14"/>
+
+                                <!-- MultiTrigger: срабатывает при выполнении ВСЕХ условий -->
+                                <Style.Triggers>
+                                    <MultiTrigger>
+                                        <MultiTrigger.Conditions>
+                                            <Condition Property="IsMouseOver" Value="True"/>
+                                            <Condition Property="IsPressed" Value="True"/>
+                                        </MultiTrigger.Conditions>
+                                        <Setter Property="Background" Value="Red"/>
+                                        <Setter Property="FontSize" Value="20"/>
+                                        <Setter Property="Foreground" Value="White"/>
+                                    </MultiTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
+                    <TextBlock Text="✓ Multi Trigger срабатывает только когда И наведен курсор, И нажата кнопка" 
+                               Margin="5,10,5,5" 
+                               Foreground="Green" FontSize="11"/>
+                </StackPanel>
+            </GroupBox>
+
+            <!-- Пример 4: DataTrigger с прогрессом и командами -->
+            <GroupBox Header="4. Data Trigger с прогрессом и командами" 
+                      Grid.Row="4" 
+                      Margin="0,0,0,0" Padding="10">
+                <StackPanel>
+                    <TextBlock Text="Достигните 100% - кнопка автоматически отключится" 
+                               Margin="5" Foreground="Gray"/>
+
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0">
+                            <TextBlock Text="Прогресс:"/>
+                            <ProgressBar Minimum="0" Maximum="100" 
+                                         Value="{Binding ProgressValue}"
+                                         Height="25" Margin="0,5"/>
+                            <TextBlock Text="{Binding ProgressValue, StringFormat={}{0}%}" 
+           HorizontalAlignment="Center"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                            <Button Content="+10%" 
+                                    Command="{Binding IncreaseProgressCommand}"
+                                    IsEnabled="{Binding IsButtonEnabled}"
+                                    Width="80" Height="30"
+                                    Margin="0,0,0,5"/>
+                            <Button Content="Сброс" 
+                                    Command="{Binding ResetCommand}"
+                                    Width="80" Height="30"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <Border Margin="5,10,5,5" 
+                            Padding="10"
+                            CornerRadius="5">
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Setter Property="Background" Value="LightGray"/>
+
+                                <Style.Triggers>
+                                    <!-- DataTrigger при достижении 100% -->
+                                    <DataTrigger Binding="{Binding ProgressValue}" Value="100">
+                                        <Setter Property="Background" Value="LightGreen"/>
+                                    </DataTrigger>
+
+                                    <!-- DataTrigger при включенном специальном режиме -->
+                                    <DataTrigger Binding="{Binding IsSpecialMode}" Value="True">
+                                        <Setter Property="Background" Value="LightYellow"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+
+                        <TextBlock Text="{Binding StatusText}" 
+                                   HorizontalAlignment="Center"
+                                   FontWeight="Bold"/>
+                    </Border>
+
+                    <TextBlock Text="✓ Data Trigger может реагировать на любые данные (ProgressValue, IsSpecialMode)" 
+                               Margin="5,10,5,5" 
+                               Foreground="Green" FontSize="11"/>
+
+                    <TextBlock Text="✓ Команды RelayCommand обеспечивают MVVM-совместимую обработку действий" 
+                               Margin="5,0,5,5" 
+                               Foreground="Blue" FontSize="11"/>
+                </StackPanel>
+            </GroupBox>
+        </Grid>
+    </ScrollViewer>
 </UserControl>

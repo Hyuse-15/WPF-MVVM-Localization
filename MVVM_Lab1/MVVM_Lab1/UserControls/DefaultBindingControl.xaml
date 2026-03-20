@@ -3,13 +3,141 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MVVM_Lab1"
+             xmlns:viewmodels="clr-namespace:MVVM_Lab1.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <TextBlock Text="Здесь будет контент вкладки 'Привязка по умолчанию'" 
+
+    <UserControl.DataContext>
+        <viewmodels:DefaultBindingViewModel />
+    </UserControl.DataContext>
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Заголовок -->
+        <TextBlock Text="Демонстрация привязки по умолчанию (Mode=Default)" 
+                   Grid.Row="0" Grid.ColumnSpan="3"
+                   FontSize="18" FontWeight="Bold" 
                    HorizontalAlignment="Center" 
-                   VerticalAlignment="Center"
-                   FontSize="16"/>
+                   Margin="0,0,0,20"/>
+
+        <!-- Пояснение -->
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="3"
+                   Text="Default режим: для TextBlock - OneWay, для TextBox - TwoWay"
+                   TextWrapping="Wrap"
+                   Foreground="Gray"
+                   Margin="0,0,0,15"/>
+
+        <!-- Пример 1: Привязка к свойствам ViewModel -->
+        <TextBlock Text="Привязка к ViewModel:" 
+                   Grid.Row="2" Grid.Column="0"
+                   FontWeight="Bold"
+                   VerticalAlignment="Center"/>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" Margin="5">
+            <TextBlock Text="Имя пользователя (TextBlock - OneWay):"/>
+            <TextBlock Text="{Binding UserName}" 
+                       FontSize="16" 
+                       Margin="0,0,0,10"/>
+
+            <TextBlock Text="Введите имя (TextBox - TwoWay):"/>
+            <TextBox Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                     Margin="0,0,0,10"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="2" Margin="5">
+            <TextBlock Text="Возраст (TextBlock - OneWay):"/>
+            <TextBlock Text="{Binding Age}" 
+                       FontSize="16" 
+                       Margin="0,0,0,10"/>
+
+            <TextBlock Text="Изменить возраст (Slider - TwoWay):"/>
+            <Slider Minimum="0" Maximum="100" 
+                    Value="{Binding Age, Mode=TwoWay}"
+                    Margin="0,0,0,10"/>
+        </StackPanel>
+
+        <!-- Пример 2: Привязка с CheckBox -->
+        <TextBlock Text="CheckBox пример:" 
+                   Grid.Row="3" Grid.Column="0"
+                   FontWeight="Bold"
+                   VerticalAlignment="Center"/>
+
+        <StackPanel Grid.Row="3" Grid.Column="1" Margin="5">
+            <CheckBox Content="Подписан на рассылку" 
+                      IsChecked="{Binding IsSubscribed, Mode=TwoWay}"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="2" Margin="5">
+            <TextBlock Text="Статус подписки:"/>
+            <TextBlock Text="{Binding IsSubscribed}" 
+                       FontSize="14"/>
+        </StackPanel>
+
+        <!-- Пример 3: OneTime привязка в Default режиме -->
+        <TextBlock Text="OneTime данные:" 
+                   Grid.Row="4" Grid.Column="0"
+                   FontWeight="Bold"
+                   VerticalAlignment="Center"/>
+
+        <StackPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Margin="5">
+            <TextBlock Text="ReadOnlyData (OneTime по умолчанию для TextBlock):"/>
+            <TextBlock Text="{Binding ReadOnlyData, Mode=OneTime}" 
+                       FontSize="14"
+                       TextWrapping="Wrap"
+                       Margin="0,0,0,10"/>
+            <TextBlock Text="* Это значение обновляется каждую секунду в VM, но UI не видит изменений"
+                       Foreground="Gray"
+                       FontSize="11"/>
+        </StackPanel>
+
+        <!-- Разделительная линия -->
+        <Rectangle Grid.Row="5" Grid.ColumnSpan="3" 
+                   Height="2" Fill="LightGray" 
+                   Margin="0,20,0,20"
+                   VerticalAlignment="Top"/>
+
+        <!-- Пример прямой привязки к элементам интерфейса -->
+        <TextBlock Text="Прямая привязка к элементам UI:" 
+                   Grid.Row="5" Grid.Column="0"
+                   FontWeight="Bold"
+                   VerticalAlignment="Top"
+                   Margin="0,30,0,0"/>
+
+        <StackPanel Grid.Row="5" Grid.Column="1" 
+                    Margin="5,30,0,0">
+            <TextBox x:Name="DirectTextBox" 
+                     Text="Введите текст здесь"
+                     Margin="0,0,0,10"/>
+
+            <TextBlock Text="Привязка к DirectTextBox:"/>
+            <TextBlock Text="{Binding ElementName=DirectTextBox, Path=Text}"
+                       FontSize="14"
+                       TextWrapping="Wrap"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="5" Grid.Column="2" 
+                    Margin="5,30,0,0">
+            <CheckBox x:Name="DirectCheckBox" 
+                      Content="Переключи меня"
+                      Margin="0,0,0,10"/>
+
+            <TextBlock Text="Состояние CheckBox:"/>
+            <TextBlock Text="{Binding ElementName=DirectCheckBox, Path=IsChecked}"
+                       FontSize="14"/>
+        </StackPanel>
     </Grid>
 </UserControl>
