@@ -1,0 +1,57 @@
+﻿<Window x:Class="MVVM_Lab1.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVVM_Lab1"
+        mc:Ignorable="d"
+        Title="Лабораторная работа №1: Привязки и триггеры в WPF"
+        Height="550" Width="900"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <TextBlock Text="Демонстрация работы привязок и триггеров в WPF" 
+                   FontSize="18" FontWeight="Bold" 
+                   HorizontalAlignment="Center" 
+                   Margin="0,0,0,15"/>
+
+        <!-- TabControl с вкладками -->
+        <TabControl Grid.Row="1">
+            <!-- Вкладка 1: Привязка по умолчанию -->
+            <TabItem Header="Привязка по умолчанию" FontSize="14" Padding="10">
+                <Frame Source="UserControls/DefaultBindingControl.xaml" 
+                       NavigationUIVisibility="Hidden"/>
+            </TabItem>
+
+            <!-- Вкладка 2: Двухсторонняя привязка -->
+            <TabItem Header="Двухсторонняя привязка" FontSize="14" Padding="10">
+                <Frame Source="UserControls/TwoWayBindingControl.xaml" 
+                       NavigationUIVisibility="Hidden"/>
+            </TabItem>
+
+            <!-- Вкладка 3: Одноразовая привязка -->
+            <TabItem Header="Одноразовая привязка" FontSize="14" Padding="10">
+                <Frame Source="UserControls/OneTimeBindingControl.xaml" 
+                       NavigationUIVisibility="Hidden"/>
+            </TabItem>
+
+            <!-- Вкладка 4: Односторонняя привязка -->
+            <TabItem Header="Односторонняя привязка" FontSize="14" Padding="10">
+                <Frame Source="UserControls/OneWayBindingControl.xaml" 
+                       NavigationUIVisibility="Hidden"/>
+            </TabItem>
+
+            <!-- Вкладка 5: Триггеры -->
+            <TabItem Header="Триггеры" FontSize="14" Padding="10">
+                <Frame Source="UserControls/TriggersControl.xaml" 
+                       NavigationUIVisibility="Hidden"/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
