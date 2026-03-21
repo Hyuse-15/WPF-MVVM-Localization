@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Цвета -->
+    <SolidColorBrush x:Key="PrimaryColor" Color="#2C3E50"/>
+    <SolidColorBrush x:Key="SecondaryColor" Color="#3498DB"/>
+    <SolidColorBrush x:Key="AccentColor" Color="#E74C3C"/>
+    <SolidColorBrush x:Key="BackgroundColor" Color="#ECF0F1"/>
+    <SolidColorBrush x:Key="SuccessColor" Color="#27AE60"/>
+    <SolidColorBrush x:Key="WarningColor" Color="#F39C12"/>
+    <SolidColorBrush x:Key="DangerColor" Color="#E74C3C"/>
+
+    <!-- Кисти -->
+    <LinearGradientBrush x:Key="HeaderGradient" StartPoint="0,0" EndPoint="1,0">
+        <GradientStop Color="#2C3E50" Offset="0"/>
+        <GradientStop Color="#3498DB" Offset="1"/>
+    </LinearGradientBrush>
+
+</ResourceDictionary>
