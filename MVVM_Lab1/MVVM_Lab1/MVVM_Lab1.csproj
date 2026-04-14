@@ -56,9 +56,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\SampleModel.cs" />
-    <Compile Include="Resources\Colors.xaml.cs">
-      <DependentUpon>Colors.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModels\DefaultBindingViewModel.cs" />
     <Compile Include="ViewModels\OneTimeBindingViewModel.cs" />
     <Compile Include="ViewModels\OneWayBindingViewModel.cs" />

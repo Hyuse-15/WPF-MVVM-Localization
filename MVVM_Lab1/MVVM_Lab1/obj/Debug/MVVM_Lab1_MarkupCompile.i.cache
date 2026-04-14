@@ -12,9 +12,9 @@ DEBUG;TRACE
 C:\Users\ferum\OneDrive\Документы\GitHub\WPF-MVVM-Lab1\MVVM_Lab1\MVVM_Lab1\App.xaml
 7-307841233
 
-192037552080
+181845292761
 13-1310406943
 MainWindow.xaml;Resources\Colors.xaml;UserControls\DefaultBindingControl.xaml;UserControls\OneTimeBindingControl.xaml;UserControls\OneWayBindingControl.xaml;UserControls\TriggersControl.xaml;UserControls\TwoWayBindingControl.xaml;
 
-True
+False
 

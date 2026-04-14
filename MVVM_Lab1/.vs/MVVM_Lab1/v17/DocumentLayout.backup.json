@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\ferum\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\WPF-MVVM-Lab1\\MVVM_Lab1\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{46FE3A57-5D5D-4289-B0F2-47640702FD1E}|MVVM_Lab1\\MVVM_Lab1.csproj|C:\\Users\\ferum\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\WPF-MVVM-Lab1\\MVVM_Lab1\\mvvm_lab1\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{46FE3A57-5D5D-4289-B0F2-47640702FD1E}|MVVM_Lab1\\MVVM_Lab1.csproj|solutionrelative:mvvm_lab1\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{46FE3A57-5D5D-4289-B0F2-47640702FD1E}|MVVM_Lab1\\MVVM_Lab1.csproj|c:\\users\\ferum\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\github\\wpf-mvvm-lab1\\mvvm_lab1\\mvvm_lab1\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{46FE3A57-5D5D-4289-B0F2-47640702FD1E}|MVVM_Lab1\\MVVM_Lab1.csproj|solutionrelative:mvvm_lab1\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,19 +15,11 @@
       "RelativeMoniker": "D:0:0:{46FE3A57-5D5D-4289-B0F2-47640702FD1E}|MVVM_Lab1\\MVVM_Lab1.csproj|solutionrelative:mvvm_lab1\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{46FE3A57-5D5D-4289-B0F2-47640702FD1E}|MVVM_Lab1\\MVVM_Lab1.csproj|C:\\Users\\ferum\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\WPF-MVVM-Lab1\\MVVM_Lab1\\mvvm_lab1\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{46FE3A57-5D5D-4289-B0F2-47640702FD1E}|MVVM_Lab1\\MVVM_Lab1.csproj|solutionrelative:mvvm_lab1\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{46FE3A57-5D5D-4289-B0F2-47640702FD1E}|MVVM_Lab1\\MVVM_Lab1.csproj|c:\\users\\ferum\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\github\\wpf-mvvm-lab1\\mvvm_lab1\\mvvm_lab1\\resources\\colors.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46FE3A57-5D5D-4289-B0F2-47640702FD1E}|MVVM_Lab1\\MVVM_Lab1.csproj|solutionrelative:mvvm_lab1\\resources\\colors.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{46FE3A57-5D5D-4289-B0F2-47640702FD1E}|MVVM_Lab1\\MVVM_Lab1.csproj|c:\\users\\ferum\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\github\\wpf-mvvm-lab1\\mvvm_lab1\\mvvm_lab1\\resources\\colors.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{46FE3A57-5D5D-4289-B0F2-47640702FD1E}|MVVM_Lab1\\MVVM_Lab1.csproj|C:\\Users\\ferum\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\WPF-MVVM-Lab1\\MVVM_Lab1\\mvvm_lab1\\resources\\colors.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{46FE3A57-5D5D-4289-B0F2-47640702FD1E}|MVVM_Lab1\\MVVM_Lab1.csproj|solutionrelative:mvvm_lab1\\resources\\colors.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{46FE3A57-5D5D-4289-B0F2-47640702FD1E}|MVVM_Lab1\\MVVM_Lab1.csproj|c:\\users\\ferum\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\github\\wpf-mvvm-lab1\\mvvm_lab1\\mvvm_lab1\\models\\samplemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{46FE3A57-5D5D-4289-B0F2-47640702FD1E}|MVVM_Lab1\\MVVM_Lab1.csproj|C:\\Users\\ferum\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\WPF-MVVM-Lab1\\MVVM_Lab1\\mvvm_lab1\\models\\samplemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{46FE3A57-5D5D-4289-B0F2-47640702FD1E}|MVVM_Lab1\\MVVM_Lab1.csproj|solutionrelative:mvvm_lab1\\models\\samplemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -77,48 +73,33 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Colors.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\ferum\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\WPF-MVVM-Lab1\\MVVM_Lab1\\MVVM_Lab1\\Resources\\Colors.xaml.cs",
-              "RelativeDocumentMoniker": "MVVM_Lab1\\Resources\\Colors.xaml.cs",
-              "ToolTip": "C:\\Users\\ferum\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\WPF-MVVM-Lab1\\MVVM_Lab1\\MVVM_Lab1\\Resources\\Colors.xaml.cs",
-              "RelativeToolTip": "MVVM_Lab1\\Resources\\Colors.xaml.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAmwBcAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-20T15:32:44.563Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "Colors.xaml",
               "DocumentMoniker": "C:\\Users\\ferum\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\WPF-MVVM-Lab1\\MVVM_Lab1\\MVVM_Lab1\\Resources\\Colors.xaml",
               "RelativeDocumentMoniker": "MVVM_Lab1\\Resources\\Colors.xaml",
               "ToolTip": "C:\\Users\\ferum\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\WPF-MVVM-Lab1\\MVVM_Lab1\\MVVM_Lab1\\Resources\\Colors.xaml",
               "RelativeToolTip": "MVVM_Lab1\\Resources\\Colors.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-03-20T15:32:21.775Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-20T15:32:21.775Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\ferum\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\WPF-MVVM-Lab1\\MVVM_Lab1\\MVVM_Lab1\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MVVM_Lab1\\MainWindow.xaml",
               "ToolTip": "C:\\Users\\ferum\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\WPF-MVVM-Lab1\\MVVM_Lab1\\MVVM_Lab1\\MainWindow.xaml",
               "RelativeToolTip": "MVVM_Lab1\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-03-20T08:35:59.266Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-20T08:35:59.266Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\ferum\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\WPF-MVVM-Lab1\\MVVM_Lab1\\MVVM_Lab1\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MVVM_Lab1\\MainWindow.xaml.cs",
@@ -131,7 +112,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "SampleModel.cs",
               "DocumentMoniker": "C:\\Users\\ferum\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\WPF-MVVM-Lab1\\MVVM_Lab1\\MVVM_Lab1\\Models\\SampleModel.cs",
               "RelativeDocumentMoniker": "MVVM_Lab1\\Models\\SampleModel.cs",
@@ -139,12 +120,11 @@
               "RelativeToolTip": "MVVM_Lab1\\Models\\SampleModel.cs",
               "ViewState": "AgIAACEAAAAAAAAAAADwvzkAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-20T12:54:53.119Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-20T12:54:53.119Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "App.xaml",
               "DocumentMoniker": "C:\\Users\\ferum\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\WPF-MVVM-Lab1\\MVVM_Lab1\\MVVM_Lab1\\App.xaml",
               "RelativeDocumentMoniker": "MVVM_Lab1\\App.xaml",
@@ -156,7 +136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "ResourcePart.cs",
               "DocumentMoniker": "C:\\Users\\ferum\\AppData\\Local\\Temp\\.vsdbgsrc\\3714f74b82eacc6cf8dcf1e32980b0908d4f8b447d25d4eb08ff1424a7b57c02\\ResourcePart.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\3714f74b82eacc6cf8dcf1e32980b0908d4f8b447d25d4eb08ff1424a7b57c02\\ResourcePart.cs",
@@ -168,7 +148,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 13,
               "Title": "OneTimeBindingControl.xaml",
               "DocumentMoniker": "C:\\Users\\ferum\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\WPF-MVVM-Lab1\\MVVM_Lab1\\MVVM_Lab1\\UserControls\\OneTimeBindingControl.xaml",
               "RelativeDocumentMoniker": "MVVM_Lab1\\UserControls\\OneTimeBindingControl.xaml",
@@ -179,7 +159,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 12,
               "Title": "OneWayBindingControl.xaml",
               "DocumentMoniker": "C:\\Users\\ferum\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\WPF-MVVM-Lab1\\MVVM_Lab1\\MVVM_Lab1\\UserControls\\OneWayBindingControl.xaml",
               "RelativeDocumentMoniker": "MVVM_Lab1\\UserControls\\OneWayBindingControl.xaml",
@@ -190,7 +170,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "DefaultBindingViewModel.cs",
               "DocumentMoniker": "C:\\Users\\ferum\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\WPF-MVVM-Lab1\\MVVM_Lab1\\MVVM_Lab1\\ViewModels\\DefaultBindingViewModel.cs",
               "RelativeDocumentMoniker": "MVVM_Lab1\\ViewModels\\DefaultBindingViewModel.cs",
@@ -202,7 +182,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "TwoWayBindingViewModel.cs",
               "DocumentMoniker": "C:\\Users\\ferum\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\WPF-MVVM-Lab1\\MVVM_Lab1\\MVVM_Lab1\\ViewModels\\TwoWayBindingViewModel.cs",
               "RelativeDocumentMoniker": "MVVM_Lab1\\ViewModels\\TwoWayBindingViewModel.cs",
@@ -214,7 +194,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 11,
               "Title": "TriggersControl.xaml",
               "DocumentMoniker": "C:\\Users\\ferum\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\WPF-MVVM-Lab1\\MVVM_Lab1\\MVVM_Lab1\\UserControls\\TriggersControl.xaml",
               "RelativeDocumentMoniker": "MVVM_Lab1\\UserControls\\TriggersControl.xaml",
@@ -225,7 +205,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "DefaultBindingControl.xaml",
               "DocumentMoniker": "C:\\Users\\ferum\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\WPF-MVVM-Lab1\\MVVM_Lab1\\MVVM_Lab1\\UserControls\\DefaultBindingControl.xaml",
               "RelativeDocumentMoniker": "MVVM_Lab1\\UserControls\\DefaultBindingControl.xaml",
@@ -236,7 +216,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "OneWayBindingControl.g.cs",
               "DocumentMoniker": "C:\\Users\\ferum\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\WPF-MVVM-Lab1\\MVVM_Lab1\\MVVM_Lab1\\obj\\Debug\\UserControls\\OneWayBindingControl.g.cs",
               "RelativeDocumentMoniker": "MVVM_Lab1\\obj\\Debug\\UserControls\\OneWayBindingControl.g.cs",
@@ -248,7 +228,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 10,
               "Title": "TwoWayBindingControl.xaml",
               "DocumentMoniker": "C:\\Users\\ferum\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\WPF-MVVM-Lab1\\MVVM_Lab1\\MVVM_Lab1\\UserControls\\TwoWayBindingControl.xaml",
               "RelativeDocumentMoniker": "MVVM_Lab1\\UserControls\\TwoWayBindingControl.xaml",
@@ -259,7 +239,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 15,
               "Title": "DefaultBindingControl.xaml.cs",
               "DocumentMoniker": "C:\\Users\\ferum\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\WPF-MVVM-Lab1\\MVVM_Lab1\\MVVM_Lab1\\UserControls\\DefaultBindingControl.xaml.cs",
               "RelativeDocumentMoniker": "MVVM_Lab1\\UserControls\\DefaultBindingControl.xaml.cs",
@@ -271,7 +251,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 14,
               "Title": "TriggersControl.g.cs",
               "DocumentMoniker": "C:\\Users\\ferum\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\WPF-MVVM-Lab1\\MVVM_Lab1\\MVVM_Lab1\\obj\\Debug\\UserControls\\TriggersControl.g.cs",
               "RelativeDocumentMoniker": "MVVM_Lab1\\obj\\Debug\\UserControls\\TriggersControl.g.cs",
