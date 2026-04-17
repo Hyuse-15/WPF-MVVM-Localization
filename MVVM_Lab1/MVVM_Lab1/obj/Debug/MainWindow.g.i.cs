@@ -9,6 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using MVVM_Lab1.Resources;
 using System;
 using System.Diagnostics;
 using System.Windows;
@@ -40,7 +41,7 @@ namespace MVVM_Lab1 {
     public partial class MainWindow : System.Windows.Window, System.Windows.Markup.IComponentConnector {
         
         
-        #line 85 "..\..\MainWindow.xaml"
+        #line 80 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ComboBox LanguageSelector;
         
@@ -48,7 +49,7 @@ namespace MVVM_Lab1 {
         #line hidden
         
         
-        #line 97 "..\..\MainWindow.xaml"
+        #line 92 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock TabTitle;
         
@@ -56,87 +57,7 @@ namespace MVVM_Lab1 {
         #line hidden
         
         
-        #line 111 "..\..\MainWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TabItem TabDefault;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 113 "..\..\MainWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBlock TabDefaultHeader;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 119 "..\..\MainWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TabItem TabTwoWay;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 121 "..\..\MainWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBlock TabTwoWayHeader;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 127 "..\..\MainWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TabItem TabOneTime;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 129 "..\..\MainWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBlock TabOneTimeHeader;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 135 "..\..\MainWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TabItem TabOneWay;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 137 "..\..\MainWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBlock TabOneWayHeader;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 143 "..\..\MainWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TabItem TabTriggers;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 145 "..\..\MainWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBlock TabTriggersHeader;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 158 "..\..\MainWindow.xaml"
+        #line 153 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock StatusBar;
         
@@ -176,7 +97,7 @@ namespace MVVM_Lab1 {
             case 1:
             this.LanguageSelector = ((System.Windows.Controls.ComboBox)(target));
             
-            #line 88 "..\..\MainWindow.xaml"
+            #line 83 "..\..\MainWindow.xaml"
             this.LanguageSelector.SelectionChanged += new System.Windows.Controls.SelectionChangedEventHandler(this.LanguageSelector_SelectionChanged);
             
             #line default
@@ -186,36 +107,6 @@ namespace MVVM_Lab1 {
             this.TabTitle = ((System.Windows.Controls.TextBlock)(target));
             return;
             case 3:
-            this.TabDefault = ((System.Windows.Controls.TabItem)(target));
-            return;
-            case 4:
-            this.TabDefaultHeader = ((System.Windows.Controls.TextBlock)(target));
-            return;
-            case 5:
-            this.TabTwoWay = ((System.Windows.Controls.TabItem)(target));
-            return;
-            case 6:
-            this.TabTwoWayHeader = ((System.Windows.Controls.TextBlock)(target));
-            return;
-            case 7:
-            this.TabOneTime = ((System.Windows.Controls.TabItem)(target));
-            return;
-            case 8:
-            this.TabOneTimeHeader = ((System.Windows.Controls.TextBlock)(target));
-            return;
-            case 9:
-            this.TabOneWay = ((System.Windows.Controls.TabItem)(target));
-            return;
-            case 10:
-            this.TabOneWayHeader = ((System.Windows.Controls.TextBlock)(target));
-            return;
-            case 11:
-            this.TabTriggers = ((System.Windows.Controls.TabItem)(target));
-            return;
-            case 12:
-            this.TabTriggersHeader = ((System.Windows.Controls.TextBlock)(target));
-            return;
-            case 13:
             this.StatusBar = ((System.Windows.Controls.TextBlock)(target));
             return;
             }

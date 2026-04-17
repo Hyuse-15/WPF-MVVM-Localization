@@ -14,7 +14,7 @@ C:\Users\ferum\OneDrive\Документы\GitHub\WPF-MVVM-Lab1\MVVM_Lab1\MVVM_L
 
 17-367585917
 13-1310406943
-MainWindow.xaml;Resources\Colors.xaml;UserControls\DefaultBindingControl.xaml;UserControls\OneTimeBindingControl.xaml;UserControls\OneWayBindingControl.xaml;UserControls\TriggersControl.xaml;UserControls\TwoWayBindingControl.xaml;
+MainWindow.xaml;UserControls\DefaultBindingControl.xaml;UserControls\OneTimeBindingControl.xaml;UserControls\OneWayBindingControl.xaml;UserControls\TriggersControl.xaml;UserControls\TwoWayBindingControl.xaml;Resources\Colors.xaml;
 
 False
 
