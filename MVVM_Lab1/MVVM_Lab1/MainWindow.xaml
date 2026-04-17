@@ -3,18 +3,21 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodels="clr-namespace:MVVM_Lab1.ViewModels"
         mc:Ignorable="d"
-        Title="Лабораторная работа №1 и №2: MVVM и Локализация" 
+        Title="{Binding Localization[WindowTitle]}" 
         Height="700" Width="1000"
         WindowStartupLocation="CenterScreen">
 
+    <Window.DataContext>
+        <viewmodels:MainWindowViewModel />
+    </Window.DataContext>
+
     <Window.Resources>
-        <!-- Локальные цветовые ресурсы -->
         <SolidColorBrush x:Key="PrimaryColor" Color="#2C3E50"/>
         <SolidColorBrush x:Key="SecondaryColor" Color="#3498DB"/>
         <SolidColorBrush x:Key="BackgroundColor" Color="#ECF0F1"/>
 
-        <!-- Стиль для Border -->
         <Style TargetType="Border">
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
@@ -23,29 +26,22 @@
             </Style.Triggers>
         </Style>
 
-        <!-- Исправленный стиль для TabItem - текст всегда черный -->
         <Style TargetType="TabItem">
             <Setter Property="FontSize" Value="12"/>
             <Setter Property="Padding" Value="15,8"/>
             <Setter Property="Background" Value="#E0E0E0"/>
             <Setter Property="Foreground" Value="Black"/>
-            <!-- Устанавливаем черный цвет текста по умолчанию -->
 
             <Style.Triggers>
-                <!-- При наведении мыши меняем фон, но текст остается черным -->
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="{StaticResource PrimaryColor}"/>
                     <Setter Property="Foreground" Value="Black"/>
-                    <!-- Текст остается черным -->
                 </Trigger>
 
-                <!-- При выборе вкладки меняем фон, но текст остается черным -->
                 <Trigger Property="IsSelected" Value="True">
                     <Setter Property="Background" Value="{StaticResource SecondaryColor}"/>
                     <Setter Property="Foreground" Value="Black"/>
-                    <!-- Текст остается черным -->
                     <Setter Property="FontWeight" Value="Bold"/>
-                    <!-- Опционально: делаем жирным -->
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -71,92 +67,65 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Text="Демонстрация MVVM и локализации в WPF" 
+                <TextBlock Text="{Binding Localization[MainTitle]}" 
                            FontSize="16" 
                            FontWeight="Bold" 
                            Foreground="White"
                            VerticalAlignment="Center"/>
 
                 <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
-                    <TextBlock Text="Язык:" 
+                    <TextBlock Text="{Binding Localization[LanguageLabel]}" 
                                Foreground="White" 
                                VerticalAlignment="Center"
                                Margin="0,0,10,0"/>
-                    <ComboBox x:Name="LanguageSelector" 
+                    <ComboBox ItemsSource="{Binding Languages}"
+                              SelectedItem="{Binding SelectedLanguage}"
+                              DisplayMemberPath="NativeName"
                               Width="120"
-                              Background="White"
-                              SelectionChanged="LanguageSelector_SelectionChanged">
-                        <ComboBoxItem Content="Русский" Tag="ru" IsSelected="True"/>
-                        <ComboBoxItem Content="中文" Tag="zh"/>
-                    </ComboBox>
+                              Background="White"/>
                 </StackPanel>
             </Grid>
         </Border>
 
-        <!-- Заголовок для вкладок (будет меняться при локализации) -->
-        <TextBlock x:Name="TabTitle" 
-                   Grid.Row="1"
-                   Text="Типы привязок и триггеры"
+        <TextBlock Grid.Row="1"
+                   Text="{Binding Localization[TabTitle]}"
                    FontSize="14"
                    FontWeight="SemiBold"
                    Foreground="{StaticResource PrimaryColor}"
                    HorizontalAlignment="Center"
                    Margin="0,0,0,10"/>
 
-        <!-- TabControl -->
         <TabControl Grid.Row="2" 
                     Background="White"
                     BorderThickness="1"
                     BorderBrush="#BDC3C7">
-            <TabItem x:Name="TabDefault">
-                <TabItem.Header>
-                    <TextBlock x:Name="TabDefaultHeader" Text="Привязка по умолчанию"/>
-                </TabItem.Header>
-                <Frame Source="UserControls/DefaultBindingControl.xaml" 
-                       NavigationUIVisibility="Hidden"/>
+            <TabItem Header="{Binding Localization[TabDefaultHeader]}">
+                <ContentControl Content="{Binding DefaultBindingControl}" />
             </TabItem>
 
-            <TabItem x:Name="TabTwoWay">
-                <TabItem.Header>
-                    <TextBlock x:Name="TabTwoWayHeader" Text="Двухсторонняя привязка"/>
-                </TabItem.Header>
-                <Frame Source="UserControls/TwoWayBindingControl.xaml" 
-                       NavigationUIVisibility="Hidden"/>
+            <TabItem Header="{Binding Localization[TabTwoWayHeader]}">
+                <ContentControl Content="{Binding TwoWayBindingControl}" />
             </TabItem>
 
-            <TabItem x:Name="TabOneTime">
-                <TabItem.Header>
-                    <TextBlock x:Name="TabOneTimeHeader" Text="Одноразовая привязка"/>
-                </TabItem.Header>
-                <Frame Source="UserControls/OneTimeBindingControl.xaml" 
-                       NavigationUIVisibility="Hidden"/>
+            <TabItem Header="{Binding Localization[TabOneTimeHeader]}">
+                <ContentControl Content="{Binding OneTimeBindingControl}" />
             </TabItem>
 
-            <TabItem x:Name="TabOneWay">
-                <TabItem.Header>
-                    <TextBlock x:Name="TabOneWayHeader" Text="Односторонние привязки"/>
-                </TabItem.Header>
-                <Frame Source="UserControls/OneWayBindingControl.xaml" 
-                       NavigationUIVisibility="Hidden"/>
+            <TabItem Header="{Binding Localization[TabOneWayHeader]}">
+                <ContentControl Content="{Binding OneWayBindingControl}" />
             </TabItem>
 
-            <TabItem x:Name="TabTriggers">
-                <TabItem.Header>
-                    <TextBlock x:Name="TabTriggersHeader" Text="Триггеры"/>
-                </TabItem.Header>
-                <Frame Source="UserControls/TriggersControl.xaml" 
-                       NavigationUIVisibility="Hidden"/>
+            <TabItem Header="{Binding Localization[TabTriggersHeader]}">
+                <ContentControl Content="{Binding TriggersControl}" />
             </TabItem>
         </TabControl>
 
-        <!-- Статус бар -->
         <Border Grid.Row="3" 
                 Background="#E0E0E0" 
                 CornerRadius="3"
                 Padding="5"
                 Margin="0,10,0,0">
-            <TextBlock x:Name="StatusBar" 
-                       Text="Готов к работе" 
+            <TextBlock Text="{Binding Localization[StatusReady]}" 
                        FontSize="10"
                        Foreground="Gray"/>
         </Border>

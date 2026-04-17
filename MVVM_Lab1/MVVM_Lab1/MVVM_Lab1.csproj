@@ -50,13 +50,21 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
   </ItemGroup>
+  <!-- Добавлен PackageReference для System.Text.Json -->
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="8.0.0" />
+  </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Libraries\LocalizationLibrary\LanguageInfo.cs" />
+    <Compile Include="Libraries\LocalizationLibrary\LocalizationService.cs" />
+    <Compile Include="Libraries\LocalizationLibrary\TranslationManager.cs" />
     <Compile Include="Models\SampleModel.cs" />
     <Compile Include="ViewModels\DefaultBindingViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\OneTimeBindingViewModel.cs" />
     <Compile Include="ViewModels\OneWayBindingViewModel.cs" />
     <Compile Include="ViewModels\TriggersViewModel.cs" />
@@ -131,6 +139,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Libraries\LocalizationLibrary\Resources\Strings.ru.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Libraries\LocalizationLibrary\Resources\Strings.zh.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

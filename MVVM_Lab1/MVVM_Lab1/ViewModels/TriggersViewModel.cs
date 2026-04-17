@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Windows.Input;
+using MVVM_Lab1.Libraries.LocalizationLibrary;
 
 namespace MVVM_Lab1.ViewModels
 {
-    /// <summary>
-    /// ViewModel для демонстрации триггеров
-    /// </summary>
     public class TriggersViewModel : ViewModelBase
     {
         private bool _isSpecialMode;
@@ -14,18 +12,19 @@ namespace MVVM_Lab1.ViewModels
         private bool _isButtonEnabled;
         private ICommand _increaseProgressCommand;
         private ICommand _resetCommand;
+        private readonly LocalizationService _localization;
+
+        public LocalizationService Localization => _localization;
 
         public TriggersViewModel()
         {
+            _localization = LocalizationService.Instance;
             _isSpecialMode = false;
-            _statusText = "Обычный режим";
+            _statusText = _localization.GetString("NormalMode");
             _progressValue = 0;
             _isButtonEnabled = true;
         }
 
-        /// <summary>
-        /// Флаг специального режима (для DataTrigger)
-        /// </summary>
         public bool IsSpecialMode
         {
             get => _isSpecialMode;
@@ -33,23 +32,21 @@ namespace MVVM_Lab1.ViewModels
             {
                 if (SetProperty(ref _isSpecialMode, value))
                 {
-                    StatusText = value ? "Специальный режим активен" : "Обычный режим";
+                    StatusText = value ?
+                        _localization.GetString("SpecialModeActive") :
+                        _localization.GetString("NormalMode");
+
+                    System.Diagnostics.Debug.WriteLine($"Специальный режим: {value}");
                 }
             }
         }
 
-        /// <summary>
-        /// Текст статуса (для отображения)
-        /// </summary>
         public string StatusText
         {
             get => _statusText;
             set => SetProperty(ref _statusText, value);
         }
 
-        /// <summary>
-        /// Значение прогресса (для триггеров)
-        /// </summary>
         public int ProgressValue
         {
             get => _progressValue;
@@ -57,28 +54,22 @@ namespace MVVM_Lab1.ViewModels
             {
                 if (SetProperty(ref _progressValue, value))
                 {
-                    // Автоматически отключаем кнопку при достижении 100%
                     if (value >= 100)
                     {
                         IsButtonEnabled = false;
-                        StatusText = "Завершено!";
+                        StatusText = _localization.GetString("Completed");
+                        System.Diagnostics.Debug.WriteLine("Прогресс достиг 100%");
                     }
                 }
             }
         }
 
-        /// <summary>
-        /// Доступность кнопки (для триггеров)
-        /// </summary>
         public bool IsButtonEnabled
         {
             get => _isButtonEnabled;
             set => SetProperty(ref _isButtonEnabled, value);
         }
 
-        /// <summary>
-        /// Команда для увеличения прогресса
-        /// </summary>
         public ICommand IncreaseProgressCommand
         {
             get
@@ -96,6 +87,7 @@ namespace MVVM_Lab1.ViewModels
             if (ProgressValue < 100)
             {
                 ProgressValue += 10;
+                System.Diagnostics.Debug.WriteLine($"Прогресс увеличен до: {ProgressValue}%");
             }
         }
 
@@ -104,9 +96,6 @@ namespace MVVM_Lab1.ViewModels
             return ProgressValue < 100;
         }
 
-        /// <summary>
-        /// Команда для сброса
-        /// </summary>
         public ICommand ResetCommand
         {
             get
@@ -124,13 +113,11 @@ namespace MVVM_Lab1.ViewModels
             ProgressValue = 0;
             IsButtonEnabled = true;
             IsSpecialMode = false;
-            StatusText = "Обычный режим";
+            StatusText = _localization.GetString("NormalMode");
+            System.Diagnostics.Debug.WriteLine("Сброс выполнен");
         }
     }
 
-    /// <summary>
-    /// Простая реализация ICommand для ручной ветки
-    /// </summary>
     public class RelayCommand : ICommand
     {
         private readonly Action _execute;

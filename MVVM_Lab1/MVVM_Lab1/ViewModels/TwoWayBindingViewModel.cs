@@ -1,11 +1,9 @@
 ﻿using MVVM_Lab1.Models;
 using System;
+using MVVM_Lab1.Libraries.LocalizationLibrary;
 
 namespace MVVM_Lab1.ViewModels
 {
-    /// <summary>
-    /// ViewModel для демонстрации двухсторонней привязки (Mode=TwoWay)
-    /// </summary>
     public class TwoWayBindingViewModel : ViewModelBase
     {
         private string _firstName;
@@ -16,6 +14,10 @@ namespace MVVM_Lab1.ViewModels
         private DateTime _selectedDate;
         private SampleModel _model;
 
+        private readonly LocalizationService _localization;
+
+        public LocalizationService Localization => _localization;
+
         public TwoWayBindingViewModel()
         {
             _model = new SampleModel();
@@ -24,6 +26,7 @@ namespace MVVM_Lab1.ViewModels
             _sliderValue = 50;
             _isChecked = false;
             _selectedDate = DateTime.Today;
+            _localization = LocalizationService.Instance;
 
             UpdateFullName();
         }
@@ -35,7 +38,7 @@ namespace MVVM_Lab1.ViewModels
             {
                 if (SetProperty(ref _firstName, value))
                 {
-                    UpdateFullName(); // При изменении имени обновляем полное имя
+                    UpdateFullName();
                 }
             }
         }
@@ -47,7 +50,7 @@ namespace MVVM_Lab1.ViewModels
             {
                 if (SetProperty(ref _lastName, value))
                 {
-                    UpdateFullName(); // При изменении фамилии обновляем полное имя
+                    UpdateFullName();
                 }
             }
         }
@@ -65,7 +68,7 @@ namespace MVVM_Lab1.ViewModels
             {
                 if (SetProperty(ref _sliderValue, value))
                 {
-                    // Здесь можно добавить логику при изменении значения слайдера
+                    System.Diagnostics.Debug.WriteLine($"Slider значение: {value}");
                 }
             }
         }
@@ -73,7 +76,13 @@ namespace MVVM_Lab1.ViewModels
         public bool IsChecked
         {
             get => _isChecked;
-            set => SetProperty(ref _isChecked, value);
+            set
+            {
+                if (SetProperty(ref _isChecked, value))
+                {
+                    System.Diagnostics.Debug.WriteLine($"Специальный режим: {value}");
+                }
+            }
         }
 
         public DateTime SelectedDate
@@ -82,7 +91,6 @@ namespace MVVM_Lab1.ViewModels
             set => SetProperty(ref _selectedDate, value);
         }
 
-        // Свойство для демонстрации TwoWay привязки с моделью
         public string ModelText
         {
             get => _model.TextData;

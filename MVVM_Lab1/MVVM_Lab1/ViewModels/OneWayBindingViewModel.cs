@@ -1,58 +1,47 @@
 ﻿using System;
 using System.Timers;
+using MVVM_Lab1.Libraries.LocalizationLibrary;
 
 namespace MVVM_Lab1.ViewModels
 {
-    /// <summary>
-    /// ViewModel для демонстрации односторонней привязки (Mode=OneWay)
-    /// Изменения в ViewModel отображаются в UI, но UI не может изменить ViewModel
-    /// </summary>
     public class OneWayBindingViewModel : ViewModelBase
     {
         private string _statusMessage;
         private double _progressValue;
         private int _counter;
         private Timer _timer;
+        private readonly LocalizationService _localization;
+
+        public LocalizationService Localization => _localization;
 
         public OneWayBindingViewModel()
         {
-            _statusMessage = "Система инициализирована";
+            _localization = LocalizationService.Instance;
+            _statusMessage = _localization.GetString("SystemInitialized");
             _progressValue = 0;
             _counter = 0;
 
             StartTimer();
         }
 
-        /// <summary>
-        /// Статусное сообщение (OneWay из VM в UI)
-        /// </summary>
         public string StatusMessage
         {
             get => _statusMessage;
             set => SetProperty(ref _statusMessage, value);
         }
 
-        /// <summary>
-        /// Значение прогресса (OneWay из VM в UI)
-        /// </summary>
         public double ProgressValue
         {
             get => _progressValue;
             set => SetProperty(ref _progressValue, value);
         }
 
-        /// <summary>
-        /// Счетчик (OneWay из VM в UI)
-        /// </summary>
         public int Counter
         {
             get => _counter;
             set => SetProperty(ref _counter, value);
         }
 
-        /// <summary>
-        /// Текущее время (OneWay из VM в UI)
-        /// </summary>
         private DateTime _currentTime;
         public DateTime CurrentTime
         {
@@ -65,11 +54,15 @@ namespace MVVM_Lab1.ViewModels
             _timer = new Timer(100);
             _timer.Elapsed += (s, e) =>
             {
-                // Обновляем значения в VM - UI должен отобразить изменения
                 Counter++;
                 ProgressValue = (Counter % 100) / 100.0;
-                StatusMessage = $"Обработано операций: {Counter}";
+                StatusMessage = $"{_localization.GetString("OperationsProcessed")} {Counter}";
                 CurrentTime = DateTime.Now;
+
+                if (Counter == 100)
+                {
+                    System.Diagnostics.Debug.WriteLine("Достигнуто 100 операций");
+                }
             };
             _timer.Start();
         }

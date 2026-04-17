@@ -22,7 +22,7 @@
         </Grid.RowDefinitions>
 
         <!-- Заголовок -->
-        <TextBlock Text="Демонстрация односторонней привязки (Mode=OneWay)" 
+        <TextBlock Text="{Binding Localization[OneWayBindingTitle]}" 
                    Grid.Row="0"
                    FontSize="18" FontWeight="Bold" 
                    HorizontalAlignment="Center" 
@@ -30,13 +30,13 @@
 
         <!-- Пояснение -->
         <TextBlock Grid.Row="1"
-                   Text="OneWay режим: данные передаются от ViewModel к UI, но изменения в UI не влияют на ViewModel"
+                   Text="{Binding Localization[OneWayBindingDescription]}"
                    TextWrapping="Wrap"
                    Foreground="Gray"
                    Margin="0,0,0,15"/>
 
         <!-- Группа с OneWay привязками -->
-        <GroupBox Header="Данные, автоматически обновляемые из ViewModel" 
+        <GroupBox Header="{Binding Localization[OneWayDataGroup]}" 
                   Grid.Row="2"
                   Margin="0,0,0,20" Padding="10">
             <Grid>
@@ -48,7 +48,7 @@
                 </Grid.RowDefinitions>
 
                 <StackPanel Grid.Row="0" Margin="0,5">
-                    <TextBlock Text="Статус:" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding Localization[Status]}" FontWeight="Bold"/>
                     <TextBlock Text="{Binding StatusMessage}" 
                                FontSize="14" 
                                TextWrapping="Wrap"
@@ -57,7 +57,7 @@
                 </StackPanel>
 
                 <StackPanel Grid.Row="1" Margin="0,15">
-                    <TextBlock Text="Счетчик операций:" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding Localization[OperationCounter]}" FontWeight="Bold"/>
                     <TextBlock Text="{Binding Counter}" 
                                FontSize="24"
                                FontWeight="Bold"
@@ -67,7 +67,7 @@
                 </StackPanel>
 
                 <StackPanel Grid.Row="2" Margin="0,15">
-                    <TextBlock Text="Прогресс:" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding Localization[Progress]}" FontWeight="Bold"/>
                     <ProgressBar Value="{Binding ProgressValue}" 
                                  Minimum="0" Maximum="1"
                                  Height="25"
@@ -79,7 +79,7 @@
                 </StackPanel>
 
                 <StackPanel Grid.Row="3" Margin="0,15">
-                    <TextBlock Text="Текущее время:" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding Localization[CurrentTimeNormal]}" FontWeight="Bold"/>
                     <TextBlock Text="{Binding CurrentTime, StringFormat=HH:mm:ss}" 
                                FontSize="14"
                                Background="LightYellow"
@@ -96,20 +96,20 @@
                 Padding="10"
                 Margin="0,0,0,20">
             <StackPanel>
-                <TextBlock Text="⚠️ Важно: все элементы выше используют OneWay привязку!" 
+                <TextBlock Text="{Binding Localization[OneWayImportant]}" 
                            FontWeight="Bold"
                            Margin="0,0,0,5"/>
-                <TextBlock Text="Попробуйте изменить значения через элементы управления ниже:"
+                <TextBlock Text="{Binding Localization[OneWayTryChange]}"
                            TextWrapping="Wrap"/>
-                <TextBlock Text="TextBox и Slider привязаны к тем же свойствам, но изменения не будут передаваться в ViewModel,"
+                <TextBlock Text="{Binding Localization[OneWayTextBoxNote]}"
                            TextWrapping="Wrap"/>
-                <TextBlock Text="поэтому значения вверху не изменятся."
+                <TextBlock Text="{Binding Localization[OneWayNoChange]}"
                            TextWrapping="Wrap"/>
             </StackPanel>
         </Border>
 
-        <!-- Элементы для попытки изменения (но изменения не будут работать) -->
-        <GroupBox Header="Попытка изменить данные (OneWay не позволяет)" 
+        <!-- Элементы для попытки изменения -->
+        <GroupBox Header="{Binding Localization[OneWayAttemptGroup]}" 
                   Grid.Row="4"
                   Margin="0,0,0,20" Padding="10">
             <Grid>
@@ -119,22 +119,22 @@
                 </Grid.RowDefinitions>
 
                 <StackPanel Grid.Row="0" Margin="0,5">
-                    <TextBlock Text="Попробуйте изменить статус:" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding Localization[TryChangeStatus]}" FontWeight="Bold"/>
                     <TextBox Text="{Binding StatusMessage, Mode=OneWay}" 
                              Margin="0,5,0,10"
                              Padding="5"
                              IsEnabled="True"/>
-                    <TextBlock Text="* Изменение текста не повлияет на статус выше из-за Mode=OneWay"
+                    <TextBlock Text="{Binding Localization[OneWayTextBoxWarning]}"
                                Foreground="Red"
                                FontSize="11"/>
                 </StackPanel>
 
                 <StackPanel Grid.Row="1" Margin="0,15">
-                    <TextBlock Text="Попробуйте изменить счетчик:" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding Localization[TryChangeCounter]}" FontWeight="Bold"/>
                     <Slider Minimum="0" Maximum="100" 
                             Value="{Binding Counter, Mode=OneWay}"
                             Margin="0,5,0,10"/>
-                    <TextBlock Text="* Изменение слайдера не повлияет на счетчик выше"
+                    <TextBlock Text="{Binding Localization[OneWaySliderWarning]}"
                                Foreground="Red"
                                FontSize="11"/>
                 </StackPanel>
@@ -142,17 +142,17 @@
         </GroupBox>
 
         <!-- Пример прямой привязки к элементам интерфейса -->
-        <TextBlock Text="Прямая привязка к элементам UI:" 
+        <TextBlock Text="{Binding Localization[DirectBindingToUI]}" 
                    Grid.Row="5"
                    FontWeight="Bold"
                    Margin="0,20,0,10"/>
 
         <StackPanel Grid.Row="6" Margin="0,0,0,0">
             <TextBox x:Name="DirectTextBox" 
-                     Text="Измени этот текст"
+                     Text="{Binding Localization[EnterTextHere], Mode=OneWay}"
                      Margin="0,0,0,10"
                      Padding="5"/>
-            <TextBlock Text="Привязка к DirectTextBox (OneWay):"/>
+            <TextBlock Text="{Binding Localization[BindingToDirectTextBox]}"/>
             <TextBlock Text="{Binding ElementName=DirectTextBox, Path=Text, Mode=OneWay}" 
                        FontSize="14"
                        Background="LightYellow"

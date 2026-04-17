@@ -27,7 +27,7 @@
         </Grid.ColumnDefinitions>
 
         <!-- Заголовок -->
-        <TextBlock Text="Демонстрация двухсторонней привязки (Mode=TwoWay)" 
+        <TextBlock Text="{Binding Localization[TwoWayBindingTitle]}" 
                    Grid.Row="0" Grid.ColumnSpan="2"
                    FontSize="18" FontWeight="Bold" 
                    HorizontalAlignment="Center" 
@@ -35,29 +35,29 @@
 
         <!-- Пояснение -->
         <TextBlock Grid.Row="1" Grid.ColumnSpan="2"
-                   Text="TwoWay режим: изменения в UI автоматически обновляют ViewModel и наоборот"
+                   Text="{Binding Localization[TwoWayBindingDescription]}"
                    TextWrapping="Wrap"
                    Foreground="Gray"
                    Margin="0,0,0,15"/>
 
         <!-- Левая колонка: Пример с именем и фамилией -->
-        <GroupBox Header="Пример с именем и фамилией (автоматическое вычисление)" 
+        <GroupBox Header="{Binding Localization[NameExample]}" 
                   Grid.Row="2" Grid.Column="0"
                   Margin="0,0,10,20" Padding="10">
             <StackPanel>
-                <TextBlock Text="Имя:" Margin="0,5"/>
+                <TextBlock Text="{Binding Localization[FirstName]}" Margin="0,5"/>
                 <TextBox Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                          Margin="0,0,0,10"
                          Padding="5"/>
 
-                <TextBlock Text="Фамилия:" Margin="0,5"/>
+                <TextBlock Text="{Binding Localization[LastName]}" Margin="0,5"/>
                 <TextBox Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                          Margin="0,0,0,10"
                          Padding="5"/>
 
                 <Separator Margin="0,10,0,10"/>
 
-                <TextBlock Text="Полное имя (вычисляется автоматически):" 
+                <TextBlock Text="{Binding Localization[FullName]}" 
                            FontWeight="Bold"
                            Margin="0,5"/>
                 <TextBlock Text="{Binding FullName}" 
@@ -69,15 +69,15 @@
         </GroupBox>
 
         <!-- Правая колонка: Пример с другими элементами -->
-        <GroupBox Header="Примеры TwoWay привязки с другими элементами" 
+        <GroupBox Header="{Binding Localization[TwoWayExamples]}" 
                   Grid.Row="2" Grid.Column="1"
                   Margin="10,0,0,20" Padding="10">
             <StackPanel>
-                <TextBlock Text="Слайдер (значение от 0 до 100):" Margin="0,5"/>
+                <TextBlock Text="{Binding Localization[SliderValue]}" Margin="0,5"/>
                 <Slider Minimum="0" Maximum="100" 
                         Value="{Binding SliderValue, Mode=TwoWay}"
                         Margin="0,0,0,10"/>
-                <TextBlock Text="Текущее значение:"/>
+                <TextBlock Text="{Binding Localization[CurrentValue]}"/>
                 <TextBlock Text="{Binding SliderValue}" 
                            FontSize="14" 
                            FontWeight="Bold"
@@ -85,21 +85,21 @@
 
                 <Separator Margin="0,10,0,10"/>
 
-                <TextBlock Text="CheckBox пример:" Margin="0,5"/>
-                <CheckBox Content="Включить специальный режим" 
+                <TextBlock Text="{Binding Localization[CheckBoxExample2]}" Margin="0,5"/>
+                <CheckBox Content="{Binding Localization[EnableSpecialMode]}" 
                           IsChecked="{Binding IsChecked, Mode=TwoWay}"
                           Margin="0,0,0,10"/>
-                <TextBlock Text="Состояние:"/>
+                <TextBlock Text="{Binding Localization[State]}"/>
                 <TextBlock Text="{Binding IsChecked}" 
                            FontSize="14"
                            FontWeight="Bold"/>
 
                 <Separator Margin="0,10,0,10"/>
 
-                <TextBlock Text="Выбор даты:" Margin="0,5"/>
+                <TextBlock Text="{Binding Localization[DateSelection]}" Margin="0,5"/>
                 <DatePicker SelectedDate="{Binding SelectedDate, Mode=TwoWay}"
                             Margin="0,0,0,10"/>
-                <TextBlock Text="Выбранная дата:"/>
+                <TextBlock Text="{Binding Localization[SelectedDate]}"/>
                 <TextBlock Text="{Binding SelectedDate, StringFormat=dd.MM.yyyy}" 
                            FontSize="14"
                            FontWeight="Bold"/>
@@ -107,17 +107,17 @@
         </GroupBox>
 
         <!-- Пример прямой привязки к элементам интерфейса -->
-        <TextBlock Text="Прямая привязка к элементам UI:" 
+        <TextBlock Text="{Binding Localization[DirectBindingToUI]}" 
                    Grid.Row="3" Grid.ColumnSpan="2"
                    FontWeight="Bold"
                    Margin="0,20,0,10"/>
 
         <StackPanel Grid.Row="4" Grid.Column="0" Margin="0,0,10,0">
             <TextBox x:Name="DirectTextBox" 
-                     Text="Введите текст"
+                     Text="{Binding Localization[EnterTextHere], Mode=OneWay}"
                      Margin="0,0,0,10"
                      Padding="5"/>
-            <TextBlock Text="Привязка к DirectTextBox:"/>
+            <TextBlock Text="{Binding Localization[BindingToDirectTextBox]}"/>
             <TextBlock Text="{Binding ElementName=DirectTextBox, Path=Text}"
                        FontSize="14"
                        TextWrapping="Wrap"
@@ -130,7 +130,7 @@
                     Minimum="0" Maximum="100" 
                     Value="50"
                     Margin="0,0,0,10"/>
-            <TextBlock Text="Значение слайдера:"/>
+            <TextBlock Text="{Binding Localization[CurrentValue]}"/>
             <TextBlock Text="{Binding ElementName=DirectSlider, Path=Value}"
                        FontSize="14"
                        Background="LightYellow"

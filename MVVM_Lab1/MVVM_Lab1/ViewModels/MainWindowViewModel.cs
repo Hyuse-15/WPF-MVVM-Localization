@@ -1,0 +1,62 @@
+﻿using System.Collections.ObjectModel;
+using System.Windows.Controls;
+using MVVM_Lab1.Libraries.LocalizationLibrary;
+using MVVM_Lab1.UserControls;
+
+namespace MVVM_Lab1.ViewModels
+{
+    public class MainWindowViewModel : ViewModelBase
+    {
+        private readonly LocalizationService _localization;
+        private LanguageInfo _selectedLanguage;
+
+        public ObservableCollection<LanguageInfo> Languages { get; }
+
+        public LocalizationService Localization => _localization;
+
+        public UserControl DefaultBindingControl { get; }
+        public UserControl TwoWayBindingControl { get; }
+        public UserControl OneTimeBindingControl { get; }
+        public UserControl OneWayBindingControl { get; }
+        public UserControl TriggersControl { get; }
+
+        public LanguageInfo SelectedLanguage
+        {
+            get => _selectedLanguage;
+            set
+            {
+                if (SetProperty(ref _selectedLanguage, value) && value != null)
+                {
+                    _localization.SetLanguage(value.Code);
+                }
+            }
+        }
+
+        public MainWindowViewModel()
+        {
+            _localization = LocalizationService.Instance;
+
+            // Создаем экземпляры контролов
+            DefaultBindingControl = new DefaultBindingControl();
+            TwoWayBindingControl = new TwoWayBindingControl();
+            OneTimeBindingControl = new OneTimeBindingControl();
+            OneWayBindingControl = new OneWayBindingControl();
+            TriggersControl = new TriggersControl();
+
+            Languages = new ObservableCollection<LanguageInfo>();
+            foreach (var lang in _localization.AvailableLanguages)
+            {
+                Languages.Add(lang);
+            }
+
+            foreach (var lang in Languages)
+            {
+                if (lang.Code == _localization.CurrentLanguage)
+                {
+                    SelectedLanguage = lang;
+                    break;
+                }
+            }
+        }
+    }
+}

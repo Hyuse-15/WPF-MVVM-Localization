@@ -24,7 +24,7 @@
             </Grid.RowDefinitions>
 
             <!-- Заголовок -->
-            <TextBlock Text="Демонстрация одноразовой привязки (Mode=OneTime)" 
+            <TextBlock Text="{Binding Localization[OneTimeBindingTitle]}" 
                        Grid.Row="0"
                        FontSize="18" FontWeight="Bold" 
                        HorizontalAlignment="Center" 
@@ -32,13 +32,13 @@
 
             <!-- Пояснение -->
             <TextBlock Grid.Row="1"
-                       Text="OneTime режим: значение устанавливается один раз при загрузке и больше не обновляется, даже если источник изменяется"
+                       Text="{Binding Localization[OneTimeBindingDescription]}"
                        TextWrapping="Wrap"
                        Foreground="Gray"
                        Margin="0,0,0,15"/>
 
             <!-- Группа с OneTime привязками -->
-            <GroupBox Header="Свойства с OneTime привязкой (значения не обновляются)" 
+            <GroupBox Header="{Binding Localization[OneTimeProperties]}" 
                       Grid.Row="2"
                       Margin="0,0,0,20" Padding="10">
                 <Grid>
@@ -50,8 +50,8 @@
                     </Grid.RowDefinitions>
 
                     <StackPanel Grid.Row="0" Margin="0,5">
-                        <TextBlock Text="Статический текст:" FontWeight="Bold"/>
-                        <TextBlock Text="{Binding StaticText, Mode=OneTime}" 
+                        <TextBlock Text="{Binding Localization[StaticText]}" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding Localization[SystemInitializedText]}" 
                                    FontSize="14" 
                                    TextWrapping="Wrap"
                                    Background="LightGray"
@@ -59,7 +59,7 @@
                     </StackPanel>
 
                     <StackPanel Grid.Row="1" Margin="0,15">
-                        <TextBlock Text="Время загрузки:" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding Localization[LoadTime]}" FontWeight="Bold"/>
                         <TextBlock Text="{Binding LoadTime, Mode=OneTime, StringFormat=dd.MM.yyyy HH:mm:ss}" 
                                    FontSize="14"
                                    Background="LightGray"
@@ -67,7 +67,7 @@
                     </StackPanel>
 
                     <StackPanel Grid.Row="2" Margin="0,15">
-                        <TextBlock Text="Случайное число:" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding Localization[RandomNumber]}" FontWeight="Bold"/>
                         <TextBlock Text="{Binding RandomNumber, Mode=OneTime}" 
                                    FontSize="14"
                                    Background="LightGray"
@@ -75,7 +75,7 @@
                     </StackPanel>
 
                     <TextBlock Grid.Row="3" 
-                               Text="⚠️ Эти значения НЕ обновляются, даже если в ViewModel они меняются"
+                               Text="{Binding Localization[OneTimeWarning]}"
                                Foreground="OrangeRed"
                                FontSize="12"
                                Margin="0,10,0,0"/>
@@ -83,16 +83,16 @@
             </GroupBox>
 
             <!-- Группа с обычными привязками для сравнения -->
-            <GroupBox Header="Свойства с обычной привязкой (для сравнения)" 
+            <GroupBox Header="{Binding Localization[NormalBindingCompare]}" 
                       Grid.Row="3"
                       Margin="0,0,0,20" Padding="10">
                 <StackPanel>
-                    <TextBlock Text="Текущее время (обычная привязка - обновляется):" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding Localization[CurrentTimeNormal]}" FontWeight="Bold"/>
                     <TextBlock Text="{Binding CurrentTime, StringFormat=HH:mm:ss}" 
                                FontSize="14"
                                Background="LightGreen"
                                Padding="5"/>
-                    <TextBlock Text="* Это значение обновляется каждую секунду в ViewModel и UI его видит"
+                    <TextBlock Text="{Binding Localization[UpdatesEverySecond]}"
                                Foreground="Green"
                                FontSize="11"
                                Margin="0,5,0,0"/>
@@ -107,38 +107,38 @@
                     Padding="10"
                     Margin="0,0,0,20">
                 <StackPanel>
-                    <TextBlock Text="🔍 Объяснение:" 
+                    <TextBlock Text="{Binding Localization[Explanation]}" 
                                FontWeight="Bold"
                                Margin="0,0,0,5"/>
-                    <TextBlock Text="В этом примере StaticText, LoadTime и RandomNumber используют Mode=OneTime."
+                    <TextBlock Text="{Binding Localization[ExplanationText1]}"
                                TextWrapping="Wrap"/>
-                    <TextBlock Text="В ViewModel запущен таймер, который каждую секунду пытается обновить эти значения,"
+                    <TextBlock Text="{Binding Localization[ExplanationText2]}"
                                TextWrapping="Wrap"/>
-                    <TextBlock Text="но UI не отображает эти изменения, так как привязка была выполнена только один раз при загрузке."
+                    <TextBlock Text="{Binding Localization[ExplanationText3]}"
                                TextWrapping="Wrap"/>
-                    <TextBlock Text="Однако CurrentTime (без указания Mode) обновляется, так как для TextBlock по умолчанию используется OneWay."
+                    <TextBlock Text="{Binding Localization[ExplanationText4]}"
                                TextWrapping="Wrap"/>
                 </StackPanel>
             </Border>
 
             <!-- Пример прямой привязки к элементам интерфейса -->
-            <TextBlock Text="Прямая привязка к элементам UI:" 
+            <TextBlock Text="{Binding Localization[DirectBindingToUI]}" 
                        Grid.Row="5"
                        FontWeight="Bold"
                        Margin="0,20,0,10"/>
 
             <StackPanel Grid.Row="6" Margin="0,0,0,0">
                 <TextBox x:Name="DirectTextBox" 
-                         Text="Измени этот текст"
+                         Text="{Binding Localization[EnterTextHere], Mode=OneWay}"
                          Margin="0,0,0,10"
                          Padding="5"/>
-                <TextBlock Text="Привязка к DirectTextBox (OneTime):"/>
+                <TextBlock Text="{Binding Localization[BindingToDirectTextBox]}"/>
                 <TextBlock Text="{Binding ElementName=DirectTextBox, Path=Text, Mode=OneTime}" 
                            FontSize="14"
                            Background="LightGray"
                            Padding="5"
                            Margin="0,5,0,10"/>
-                <TextBlock Text="⚠️ Изменение текста выше не обновит это значение из-за Mode=OneTime"
+                <TextBlock Text="{Binding Localization[OneTimeWarning]}"
                            Foreground="OrangeRed"
                            FontSize="11"/>
             </StackPanel>

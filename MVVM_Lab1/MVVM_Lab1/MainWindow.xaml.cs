@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
+using MVVM_Lab1.ViewModels;
 
 namespace MVVM_Lab1
 {
@@ -8,21 +8,9 @@ namespace MVVM_Lab1
         public MainWindow()
         {
             InitializeComponent();
-        }
 
-        private void LanguageSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (LanguageSelector.SelectedItem is ComboBoxItem selectedItem)
-            {
-                string languageCode = selectedItem.Tag.ToString();
-                ChangeLanguage(languageCode);
-            }
-        }
-
-        private void ChangeLanguage(string languageCode)
-        {
-            // Базовый метод, который будет переопределен в каждой ветке
-            // В каждой ветке реализация будет разной
+            // Устанавливаем DataContext
+            this.DataContext = new MainWindowViewModel();
         }
     }
 }

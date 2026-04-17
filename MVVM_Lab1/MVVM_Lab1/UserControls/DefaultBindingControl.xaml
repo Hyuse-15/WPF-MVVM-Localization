@@ -28,7 +28,7 @@
         </Grid.ColumnDefinitions>
 
         <!-- Заголовок -->
-        <TextBlock Text="Демонстрация привязки по умолчанию (Mode=Default)" 
+        <TextBlock Text="{Binding Localization[DefaultBindingTitle]}" 
                    Grid.Row="0" Grid.ColumnSpan="3"
                    FontSize="18" FontWeight="Bold" 
                    HorizontalAlignment="Center" 
@@ -36,70 +36,70 @@
 
         <!-- Пояснение -->
         <TextBlock Grid.Row="1" Grid.ColumnSpan="3"
-                   Text="Default режим: для TextBlock - OneWay, для TextBox - TwoWay"
+                   Text="{Binding Localization[DefaultBindingDescription]}"
                    TextWrapping="Wrap"
                    Foreground="Gray"
                    Margin="0,0,0,15"/>
 
         <!-- Пример 1: Привязка к свойствам ViewModel -->
-        <TextBlock Text="Привязка к ViewModel:" 
+        <TextBlock Text="{Binding Localization[BindingToViewModel]}" 
                    Grid.Row="2" Grid.Column="0"
                    FontWeight="Bold"
                    VerticalAlignment="Center"/>
 
         <StackPanel Grid.Row="2" Grid.Column="1" Margin="5">
-            <TextBlock Text="Имя пользователя (TextBlock - OneWay):"/>
+            <TextBlock Text="{Binding Localization[UserName]}"/>
             <TextBlock Text="{Binding UserName}" 
                        FontSize="16" 
                        Margin="0,0,0,10"/>
 
-            <TextBlock Text="Введите имя (TextBox - TwoWay):"/>
+            <TextBlock Text="{Binding Localization[EnterName]}"/>
             <TextBox Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                      Margin="0,0,0,10"/>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="2" Margin="5">
-            <TextBlock Text="Возраст (TextBlock - OneWay):"/>
+            <TextBlock Text="{Binding Localization[Age]}"/>
             <TextBlock Text="{Binding Age}" 
                        FontSize="16" 
                        Margin="0,0,0,10"/>
 
-            <TextBlock Text="Изменить возраст (Slider - TwoWay):"/>
+            <TextBlock Text="{Binding Localization[ChangeAge]}"/>
             <Slider Minimum="0" Maximum="100" 
                     Value="{Binding Age, Mode=TwoWay}"
                     Margin="0,0,0,10"/>
         </StackPanel>
 
         <!-- Пример 2: Привязка с CheckBox -->
-        <TextBlock Text="CheckBox пример:" 
+        <TextBlock Text="{Binding Localization[CheckBoxExample]}" 
                    Grid.Row="3" Grid.Column="0"
                    FontWeight="Bold"
                    VerticalAlignment="Center"/>
 
         <StackPanel Grid.Row="3" Grid.Column="1" Margin="5">
-            <CheckBox Content="Подписан на рассылку" 
+            <CheckBox Content="{Binding Localization[SubscribedToNewsletter]}" 
                       IsChecked="{Binding IsSubscribed, Mode=TwoWay}"/>
         </StackPanel>
 
         <StackPanel Grid.Row="3" Grid.Column="2" Margin="5">
-            <TextBlock Text="Статус подписки:"/>
+            <TextBlock Text="{Binding Localization[SubscriptionStatus]}"/>
             <TextBlock Text="{Binding IsSubscribed}" 
                        FontSize="14"/>
         </StackPanel>
 
         <!-- Пример 3: OneTime привязка в Default режиме -->
-        <TextBlock Text="OneTime данные:" 
+        <TextBlock Text="{Binding Localization[OneTimeData]}" 
                    Grid.Row="4" Grid.Column="0"
                    FontWeight="Bold"
                    VerticalAlignment="Center"/>
 
         <StackPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Margin="5">
-            <TextBlock Text="ReadOnlyData (OneTime по умолчанию для TextBlock):"/>
+            <TextBlock Text="{Binding Localization[ReadOnlyData]}"/>
             <TextBlock Text="{Binding ReadOnlyData, Mode=OneTime}" 
                        FontSize="14"
                        TextWrapping="Wrap"
                        Margin="0,0,0,10"/>
-            <TextBlock Text="* Это значение обновляется каждую секунду в VM, но UI не видит изменений"
+            <TextBlock Text="{Binding Localization[OneTimeNote]}"
                        Foreground="Gray"
                        FontSize="11"/>
         </StackPanel>
@@ -111,7 +111,7 @@
                    VerticalAlignment="Top"/>
 
         <!-- Пример прямой привязки к элементам интерфейса -->
-        <TextBlock Text="Прямая привязка к элементам UI:" 
+        <TextBlock Text="{Binding Localization[DirectBindingToUI]}" 
                    Grid.Row="5" Grid.Column="0"
                    FontWeight="Bold"
                    VerticalAlignment="Top"
@@ -120,10 +120,10 @@
         <StackPanel Grid.Row="5" Grid.Column="1" 
                     Margin="5,30,0,0">
             <TextBox x:Name="DirectTextBox" 
-                     Text="Введите текст здесь"
+                     Text="{Binding Localization[EnterTextHere], Mode=OneWay}"
                      Margin="0,0,0,10"/>
 
-            <TextBlock Text="Привязка к DirectTextBox:"/>
+            <TextBlock Text="{Binding Localization[BindingToDirectTextBox]}"/>
             <TextBlock Text="{Binding ElementName=DirectTextBox, Path=Text}"
                        FontSize="14"
                        TextWrapping="Wrap"/>
@@ -132,10 +132,10 @@
         <StackPanel Grid.Row="5" Grid.Column="2" 
                     Margin="5,30,0,0">
             <CheckBox x:Name="DirectCheckBox" 
-                      Content="Переключи меня"
+                      Content="{Binding Localization[ToggleMe]}"
                       Margin="0,0,0,10"/>
 
-            <TextBlock Text="Состояние CheckBox:"/>
+            <TextBlock Text="{Binding Localization[CheckBoxState]}"/>
             <TextBlock Text="{Binding ElementName=DirectCheckBox, Path=IsChecked}"
                        FontSize="14"/>
         </StackPanel>
