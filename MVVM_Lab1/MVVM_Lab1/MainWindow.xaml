@@ -45,6 +45,26 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+
+        <!-- Стиль для кнопки -->
+        <Style x:Key="MessageButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource SecondaryColor}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Margin" Value="0,0,10,0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource PrimaryColor}"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#1A252F"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Window.Resources>
 
     <Grid Margin="10">
@@ -120,14 +140,29 @@
             </TabItem>
         </TabControl>
 
+        <!-- Статус бар с кнопкой -->
         <Border Grid.Row="3" 
                 Background="#E0E0E0" 
                 CornerRadius="3"
                 Padding="5"
                 Margin="0,10,0,0">
-            <TextBlock Text="{Binding Localization[StatusReady]}" 
-                       FontSize="10"
-                       Foreground="Gray"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" 
+                           Text="{Binding Localization[StatusReady]}" 
+                           FontSize="10"
+                           Foreground="Gray"
+                           VerticalAlignment="Center"/>
+
+                <Button Grid.Column="1"
+                        Style="{StaticResource MessageButtonStyle}"
+                        Command="{Binding ShowMessageCommand}"
+                        Content="{Binding Localization[ShowMessageButton]}"/>
+            </Grid>
         </Border>
     </Grid>
 </Window>

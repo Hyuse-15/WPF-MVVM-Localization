@@ -1,7 +1,10 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows.Controls;
-using MVVM_Lab1.Libraries.LocalizationLibrary;
+﻿using MVVM_Lab1.Libraries.LocalizationLibrary;
 using MVVM_Lab1.UserControls;
+using System;
+using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace MVVM_Lab1.ViewModels
 {
@@ -9,6 +12,7 @@ namespace MVVM_Lab1.ViewModels
     {
         private readonly LocalizationService _localization;
         private LanguageInfo _selectedLanguage;
+        private ICommand _showMessageCommand;
 
         public ObservableCollection<LanguageInfo> Languages { get; }
 
@@ -29,6 +33,21 @@ namespace MVVM_Lab1.ViewModels
                 {
                     _localization.SetLanguage(value.Code);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Команда для показа локализованного сообщения
+        /// </summary>
+        public ICommand ShowMessageCommand
+        {
+            get
+            {
+                if (_showMessageCommand == null)
+                {
+                    _showMessageCommand = new RelayCommand(ShowLocalizedMessage);
+                }
+                return _showMessageCommand;
             }
         }
 
@@ -58,5 +77,20 @@ namespace MVVM_Lab1.ViewModels
                 }
             }
         }
+
+        /// <summary>
+        /// Показывает локализованное сообщение в MessageBox
+        /// </summary>
+        private void ShowLocalizedMessage()
+        {
+            // Получаем локализованный текст в зависимости от текущего языка
+            string messageTitle = _localization.GetString("MessageTitle");
+            string messageText = _localization.GetString("LocalizedMessageText");
+
+            // Показываем MessageBox
+            MessageBox.Show(messageText, messageTitle, MessageBoxButton.OK, MessageBoxImage.Information);
+        }
     }
+
+  
 }

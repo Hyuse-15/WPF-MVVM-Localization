@@ -9,6 +9,16 @@
   "TabOneWayHeader": "Односторонние привязки",
   "TabTriggersHeader": "Триггеры",
   "StatusReady": "Готов к работе",
+  "ShowMessageButton": "Показать сообщение",
+  "LocalizedMessageText": "Это локализованное сообщение! Текущий язык: Русский",
+
+  "MessageBoxTitle": "Информация",
+  "MessageBoxWelcome": "Добро пожаловать в приложение!",
+  "MessageBoxLanguageChanged": "Язык изменён на русский",
+  "MessageBoxButtonOk": "OK",
+  "MessageBoxButtonCancel": "Отмена",
+  "MessageBoxTest": "Это тестовое сообщение! Приложение успешно локализовано.",
+  "TestMessageButton": "Показать сообщение",
 
   "DefaultBindingTitle": "Демонстрация привязки по умолчанию (Mode=Default)",
   "DefaultBindingDescription": "Default режим: для TextBlock - OneWay, для TextBox - TwoWay",

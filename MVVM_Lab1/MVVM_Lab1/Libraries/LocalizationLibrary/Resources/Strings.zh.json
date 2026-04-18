@@ -9,6 +9,16 @@
   "TabOneWayHeader": "单向绑定",
   "TabTriggersHeader": "触发器",
   "StatusReady": "准备就绪",
+  "ShowMessageButton": "显示消息",
+  "LocalizedMessageText": "这是本地化的消息！当前语言：中文",
+
+  "MessageBoxTitle": "信息",
+  "MessageBoxWelcome": "欢迎使用应用程序！",
+  "MessageBoxLanguageChanged": "语言已更改为中文",
+  "MessageBoxButtonOk": "确定",
+  "MessageBoxButtonCancel": "取消",
+  "MessageBoxTest": "这是测试消息！应用程序已成功本地化。",
+  "TestMessageButton": "显示消息",
 
   "DefaultBindingTitle": "默认绑定模式演示 (Mode=Default)",
   "DefaultBindingDescription": "默认模式：TextBlock为OneWay，TextBox为TwoWay",
